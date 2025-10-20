@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Bundle Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .shop-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .bundle {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      cursor: pointer;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: transform 0.2s;
+    }
+
+    .bundle:hover {
+      transform: scale(1.05);
+    }
+
+    .bundle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bundle-name {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+      color: #ffd700;
+      font-size: 1.2em;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 700px;
+      width: 90%;
+      max-height: 80%;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal h2 {
+      text-align: center;
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .item {
+      background-color: #2a2a2a;
+      border-radius: 10px;
+      padding: 10px;
+      width: 120px;
+      text-align: center;
+    }
+
+    .item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      object-fit: cover;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>Custom Bundle Shop</header>
+
+  <div class="shop-container">
+    <!-- Sweet Pickaxes Bundle -->
+    <div class="bundle" onclick="openModal('pickaxeModal')">
+      <img src="https://static.wikia.nocookie.net/fortnite/images/b/b1/The_Axe_of_Champions_-_Pickaxe_-_Fortnite.png/revision/latest?cb=20200317142535" alt="Sweet Pickaxes">
+      <div class="bundle-name">Sweet Pickaxes</div>
+    </div>
+
+    <!-- Welcome to Solo Bundle -->
+    <div class="bundle" onclick="openModal('soloModal')">
+      <img src="https://images.gamebanana.com/img/ss/mods/6519dd5976576.jpg" alt="Welcome to Solo">
+      <div class="bundle-name">Welcome to Solo</div>
+    </div>
+  </div>
+
+  <!-- Sweet Pickaxes Modal -->
+  <div id="pickaxeModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('pickaxeModal')">&times;</span>
+      <h2>Sweet Pickaxes - 3,000 V-Bucks</h2>
+      <div class="items">
+        <div class="item">
+          <img src="https://static.wikia.nocookie.net/fortnite/images/b/b1/The_Axe_of_Champions_-_Pickaxe_-_Fortnite.png/revision/latest?cb=20200317142535" alt="FNCS 1.0 Pickaxe">
+          <div>FNCS 1.0 Pickaxe</div>
+        </div>
+        <div class="item">
+          <img src="https://fortnite.gg/img/items/2408/bg.jpg?51" alt="Harley Hitter">
+          <div>Harley Hitter</div>
+        </div>
+        <div class="item">
+          <img src="https://fortnite.gg/img/items/2429/bg.jpg?4" alt="Ice Breaker">
+          <div>Ice Breaker</div>
+        </div>
+      </div>
+      <div class="price">Price: 3,000 V-Bucks</div>
+    </div>
+  </div>
+
+  <!-- Welcome to Solo Modal -->
+  <div id="soloModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('soloModal')">&times;</span>
+      <h2>Welcome to Solo - 3,000 V-Bucks</h2>
+      <div class="items">
+        <div class="item">
+          <img src="https://cdn.discordapp.com/attachments/1429874960226058376/1429892181258272839/CID_Steve.png?ex=68f7ca5e&is=68f678de&hm=8aaf7a6358b26eb19c77f5f3a8b547289276f60b6fc45670fe2fb32387908718&" alt="Steve">
+          <div>Steve</div>
+        </div>
+        <div class="item">
+          <img src="https://cdn.discordapp.com/attachments/1429874960226058376/1429891808040718346/CID_Putin.png?ex=68f7ca05&is=68f67885&hm=377719cb45c37dafa2aa9f73e458a836306bd3fe9207ac58e7ab19bfb92ed46e&" alt="Putin">
+          <div>Putin</div>
+        </div>
+        <div class="item">
+          <img src="https://cdn.discordapp.com/attachments/1429874960226058376/1429891949577371688/Character_WeaveHarbor.png?ex=68f7ca26&is=68f678a6&hm=b32324ffd225b1f694ade81ec7cffd0a6c1649ab15ae48369d5f1ceede430817&" alt="Nick Eh 30">
+          <div>Nick Eh 30</div>
+        </div>
+        <div class="item">
+          <img src="https://cdn.discordapp.com/attachments/1429874960226058376/1429893172313722950/EID_Camouflage.png?ex=68f7cb4a&is=68f679ca&hm=aab55c93f3b08671851fd133d909b75fd9e241dd92ec788f8c69ed3416a64d1a&" alt="Dancin Domin">
+          <div>Dancin Domino</div>
+        </div>
+      </div>
+      <div class="price">Price: 3,000 V-Bucks</div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+    // Close modal on outside click
+    window.onclick = function(event) {
+      const pickaxeModal = document.getElementById('pickaxeModal');
+      const soloModal = document.getElementById('soloModal');
+      if (event.target == pickaxeModal) pickaxeModal.style.display = "none";
+      if (event.target == soloModal) soloModal.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
